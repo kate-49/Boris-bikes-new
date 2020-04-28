@@ -1,4 +1,5 @@
-
+require './docking_station_class.rb'
+require 'rspec'
 
 describe DockingStation do
   it 'should release the bike' do
