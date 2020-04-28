@@ -1,5 +1,4 @@
-require 'boris_bike.rb'
-require 'rspec'
+require './boris_bike.rb'
 
 #function to test that we search by surnames
 describe Person do
