@@ -4,13 +4,10 @@
 
 class Person
   def initialize
-    @name = ['name1',
-      'name2',
-      'name3'
-    ]
+  
   end
 
   def search_for_surname
-    # return "bob"
+    return "bob"
   end
 end
