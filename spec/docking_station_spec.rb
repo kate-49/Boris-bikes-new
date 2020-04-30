@@ -15,13 +15,23 @@ describe DockingStation do
   it { is_expected.to respond_to(:dock).with(1).argument }
 
   it 'adds one bike to bike count in docking_station' do
-    expect(subject.dock(1)).to eq("There are 1 bike(s) in the docking station")
+    expect(subject.dock(1)).to eq(1)
+  end
+
+  # it 'does not allow more bikes to dock if station capacity is full' do
+  #   subject.dock(20)
+  #   expect(subject.dock(1)).to eq("Docking station full.")
+  # end
+
+  it 'allows capacity of docking station to be full' do
+    subject.dock(19)
+    expect(subject.dock(1)).to eq(20)
   end
 
   describe '#dock' do
-    it 'does not dock a bike if there is 1 bike in the docking station' do
-      subject.dock(1)
-      expect{ subject.dock(1) }.to raise_error "There are 1 already docked"
+    it 'raises an error when full' do
+      20.times { subject.dock(1) }
+      expect { subject.dock(1) }.to raise_error 'Docking station full'
     end
   end
 end
