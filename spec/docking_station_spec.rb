@@ -18,9 +18,10 @@ describe DockingStation do
     expect(subject.dock(1)).to eq("There are 1 bike(s) in the docking station")
   end
 
-  # it 'returns the number of bikes in dock' do
-  #   subject.dock(1)
-  #   subject.dock(2)
-  #   expect(subject.dock(1)).to eq(4)
-  # end
+  describe '#dock' do
+    it 'does not dock a bike if there is 1 bike in the docking station' do
+      subject.dock(1)
+      expect{ subject.dock(1) }.to raise_error "There are 1 already docked"
+    end
+  end
 end

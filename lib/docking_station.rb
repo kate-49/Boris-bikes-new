@@ -1,8 +1,10 @@
 require_relative 'bike'
 class DockingStation
 
-  def initialize
+  def initialize(capacity = 20)
     @number_of_bikes = 0
+    @capacity = capacity
+    puts capacity
   end
 
   def bike_released
@@ -19,12 +21,15 @@ class DockingStation
   end
 
   def dock(add_bike = 0)
-    @number_of_bikes += add_bike
-    return "There are #{@number_of_bikes} bike(s) in the docking station"
+    fail "There are #{@number_of_bikes} already docked" if  @number_of_bikes >= 1?
+    # else
+    #   @number_of_bikes += add_bike
+    #   return "There are #{@number_of_bikes} bike(s) in the docking station"
+
+
   end
 
 end
 
-# london = DockingStation.new
-# london.dock(2)
-# puts london.dock
+london = DockingStation.new
+puts london
